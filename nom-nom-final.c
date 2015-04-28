@@ -8,14 +8,13 @@ int main(void) {
 	int rule = 0; //To figure out which rule is being used
 	int matchNumber = 0; //For getting the match number in the match formulas
 	int seqNumber[6]; //For getting the chosen sequence numbers in the sequence formulas
-	int sumNumber[6]; //For getting the chosen sum numbers in the sum formulas
+	int sumNumber[6]; //For getting the chosen sum numbers in the sum and nomformulas
 
 	//loop for entering the numbers
-	int dice = 0;
-	while(dice < 6) {
-		printf("Enter number %d:\n", dice + 1);
-		scanf("%d", &numbers[dice]);
-		dice++;
+	int scan = 0;
+	while(scan < 6) {
+		scanf("%d", &numbers[scan]);
+		scan++;
 	}
 	
 	//print out the numbers you entered
@@ -32,17 +31,117 @@ int main(void) {
 
 	//calculates result with the rules
 
-	// // sum-4 rule
-	// // sum41 = Sum 4, Number 1, sum42 = Sum 4, Number 4, etc
-	int sum41 = 4;
+	//nom-nom rule
+	int nom1 = 5;
+	while(nom1 >= 0) {
+		int nom2 = 5; 
+		while(nom2 >= 0) {
+			int nom3 = 5;
+			while(nom3 >= 0) {
+				int nom4 = 5;
+				while(nom4 >= 0) {
+					int nom5 = 5;
+					while(nom5 >= 0) {
+						int nom6 = 5;
+						while(nom6 >= 0) {
+							if (numbers[nom6] + numbers[nom5] == numbers[nom4] && numbers[nom3] + numbers[nom2] == numbers[nom1] && 
+									numbers[nom5] > numbers[nom6] &&
+									numbers[nom2] > numbers[nom3] &&
+									numbers[nom6] != numbers[nom5] &&
+									numbers[nom6] != numbers[nom4] &&
+									numbers[nom6] != numbers[nom3] &&
+									numbers[nom6] != numbers[nom2] && 
+									numbers[nom6] != numbers[nom1] &&
+									numbers[nom5] != numbers[nom4] &&
+									numbers[nom5] != numbers[nom3] &&
+									numbers[nom5] != numbers[nom2] &&
+									numbers[nom5] != numbers[nom1] &&
+									numbers[nom4] != numbers[nom3] &&
+									numbers[nom4] != numbers[nom2] &&
+									numbers[nom4] != numbers[nom1] &&
+									numbers[nom3] != numbers[nom2] &&
+									numbers[nom3] != numbers[nom1] &&
+									numbers[nom2] != numbers[nom1] &&
+									answer != 1) {
+								result = numbers[nom6] + (2 * numbers[nom5]) + (3 * numbers[nom4]) + (4 * numbers[nom3]) + (5 * numbers[nom2]) + (6 * numbers[nom1]);
+								answer = 1;
+								rule = 16;
+								sumNumber[0] = numbers[nom6];
+								sumNumber[1] = numbers[nom5];
+								sumNumber[2] = numbers[nom4];
+								sumNumber[3] = numbers[nom3];
+								sumNumber[4] = numbers[nom2];
+								sumNumber[5] = numbers[nom1];
+								break;
+							}
+							nom6--;
+						}
+						nom5--;
+					}
+					nom4--;
+				}
+				nom3--;
+			}
+			nom2--;
+		}
+		nom1--;
+	}
+
+	// sum-5 rule
+	// sum51 = Sum 5, Number 1, sum52 = Sum 5, Number 5, etc
+	int sum51 = 5;
+	while(sum51 >= 0) {
+		int sum52 = 5; 
+		while(sum52 >= 0) {
+			int sum53 = 5;
+			while(sum53 >= 0) {
+				int sum54 = 5;
+				while(sum54 >= 0) {
+					int sum55 = 5;
+					while(sum55 >= 0) {
+						int sum56 = 5;
+						while(sum56 >= 0) {
+							if (numbers[sum56] + numbers[sum55] + numbers[sum54] + numbers[sum53] + numbers[sum52] == numbers[sum51] && 
+									numbers[sum56] <= numbers[sum55] &&
+									numbers[sum55] <= numbers[sum54] &&
+									numbers[sum54] <= numbers[sum53] &&
+									numbers[sum53] <= numbers[sum52] &&
+									answer != 1) {
+								result = numbers[sum56] + numbers[sum51] + 49;
+								answer = 1;
+								rule = 15;
+								sumNumber[0] = numbers[sum56];
+								sumNumber[1] = numbers[sum55];
+								sumNumber[2] = numbers[sum54];
+								sumNumber[3] = numbers[sum53];
+								sumNumber[4] = numbers[sum52];
+								sumNumber[5] = numbers[sum51];
+								break;
+							}
+							sum56--;
+						}
+						sum55--;
+					}
+					sum54--;
+				}
+				sum53--;
+			}
+			sum52--;
+		}
+		sum51--;
+	}
+
+	// sum-4 rule
+	// sum41 = Sum 4, Number 1, sum42 = Sum 4, Number 4, etc
+	int sum41 = 5;
 	while(sum41 >= 0) {
-		int sum42 = 4;
+		int sum42 = 5;
 		while(sum42 >= 0) {
-			int sum43 = 4;
+			int sum43 = 5;
 			while(sum43 >= 0) {
-				int sum44 = 4;
+				int sum44 = 5;
 				while(sum44 >= 0) {
-					int sum45 = 4;
+					int sum45 = 5;
 					while(sum45 >= 0) {
 						if (numbers[sum45] + numbers[sum44] + numbers[sum43] + numbers[sum42] == numbers[sum41] && 
 								numbers[sum45] < numbers[sum44] &&
@@ -74,13 +173,13 @@ int main(void) {
 
 	//sum-3 rule
 	//sum31 = Sum 3, Number 1, sum32 = Sum 3, Number 2, etc
-	int sum31 = 4;
+	int sum31 = 5;
 	while(sum31 >= 0) {
-		int sum32 = 4;
+		int sum32 = 5;
 		while(sum32 >= 0) {
-			int sum33 = 4;
+			int sum33 = 5;
 			while(sum33 >= 0) {
-				int sum34 = 4;
+				int sum34 = 5;
 				while(sum34 >= 0) {
 					if(numbers[sum34] + numbers[sum33] + numbers[sum32] == numbers[sum31] && 
 						 numbers[sum34] < numbers[sum33] &&
@@ -359,7 +458,11 @@ int main(void) {
 
 
 	//printing feedback to user
-	if (rule == 14) {
+	if (rule == 16) {
+		printf("Rule nom-nom(%d+%d=%d, %d+%d=%d) - ", sumNumber[0], sumNumber[1], sumNumber[2], sumNumber[3], sumNumber[4], sumNumber[5]);
+	} else if (rule == 15) {
+		printf("Rule sum-5(%d+%d+%d+%d+%d=%d) - ", sumNumber[0], sumNumber[1], sumNumber[2], sumNumber[3], sumNumber[4], sumNumber[5]);
+	} else if (rule == 14) {
 		printf("Rule sum-4(%d+%d+%d+%d=%d) - ", sumNumber[0], sumNumber[1], sumNumber[2], sumNumber[3], sumNumber[4]);
 	} else if (rule == 13) {
 		printf("Rule sum-3(%d+%d+%d=%d) - ", sumNumber[0], sumNumber[1], sumNumber[2], sumNumber[3]);
