@@ -32,27 +32,30 @@ int main(void) {
 
 	//calculates result with the rules
 
+	//sum-3 rule
+	//
+
 	//sum-2 rule
-	//sum11 = Sum 1, Number 1, sum12 = Sum 1, Number 2, etc
-	int sum11 = 5;
-	while(sum11 >= 0) {
-		int sum12 = 5;
-		while(sum12 >= 0) {
-			int sum13 = 5;
-			while(sum13 >= 0) {
-				if(numbers[sum11] + numbers[sum12] == numbers[sum13]) {
-					result = numbers[sum11] + numbers[sum13] + 22;
+	//sum21 = Sum 2, Number 1, sum22 = Sum 2, Number 2, etc
+	int sum21 = 5;
+	while(sum21 >= 0) {
+		int sum22 = 5;
+		while(sum22 >= 0) {
+			int sum23 = 5;
+			while(sum23 >= 0) {
+				if(numbers[sum21] + numbers[sum22] == numbers[sum23]) {
+					result = numbers[sum21] + numbers[sum23] + 22;
 					answer = 1;
 					rule = 12;
-					sumNumber[0] = numbers[sum11];
-					sumNumber[1] = numbers[sum12];
-					sumNumber[2] = numbers[sum13];
+					sumNumber[0] = numbers[sum21];
+					sumNumber[1] = numbers[sum22];
+					sumNumber[2] = numbers[sum23];
 				}
-				sum13--;
+				sum23--;
 			}
-			sum12--;
+			sum22--;
 		}
-		sum11--;
+		sum21--;
 	}
 
 	//sequence-6 rule
