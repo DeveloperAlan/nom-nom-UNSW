@@ -17,17 +17,22 @@ int main(void) {
 		scan++;
 	}
 	
-	//print out the numbers you entered
-	int number = 0;
-	printf("You have entered:");
-	while(number < 6) {
-		if (number < 5) {
-			printf(" %d,", numbers[number]);
-		} else {
-			printf(" %d\n", numbers[number]);
-		};
-		number++;
+	//checks if the numbers are valid
+	int check1 = 0;
+	while(check1 < 5) {
+		if (numbers[check1] > numbers[check1 + 1]) {
+			answer = 2;
+		}
+		check1++;
 	}
+	int check2 = 0;
+	while(check2 < 6) {
+		if (numbers[check2] < 0 || numbers[check2] > 10) {
+			answer = 2;
+		}
+		check2++;
+	}
+
 
 	//calculates result with the rules
 
@@ -62,7 +67,7 @@ int main(void) {
 									numbers[nom3] != numbers[nom2] &&
 									numbers[nom3] != numbers[nom1] &&
 									numbers[nom2] != numbers[nom1] &&
-									answer != 1) {
+									answer == 0) {
 								result = numbers[nom6] + (2 * numbers[nom5]) + (3 * numbers[nom4]) + (4 * numbers[nom3]) + (5 * numbers[nom2]) + (6 * numbers[nom1]);
 								answer = 1;
 								rule = 16;
@@ -106,7 +111,7 @@ int main(void) {
 									numbers[sum55] <= numbers[sum54] &&
 									numbers[sum54] <= numbers[sum53] &&
 									numbers[sum53] <= numbers[sum52] &&
-									answer != 1) {
+									answer == 0) {
 								result = numbers[sum56] + numbers[sum51] + 49;
 								answer = 1;
 								rule = 15;
@@ -148,7 +153,7 @@ int main(void) {
 								numbers[sum44] <= numbers[sum43] &&
 								numbers[sum43] <= numbers[sum42] &&
 								numbers[sum42] < numbers[sum41] &&
-								answer != 1) {
+								answer == 0) {
 							result = numbers[sum45] + numbers[sum41] + 38;
 							answer = 1;
 							rule = 14;
@@ -184,7 +189,7 @@ int main(void) {
 					if(numbers[sum34] + numbers[sum33] + numbers[sum32] == numbers[sum31] && 
 						 numbers[sum34] < numbers[sum33] &&
 						 numbers[sum33] <= numbers[sum32] && 
-						 numbers[sum32] < numbers[sum31] && answer != 1) {
+						 numbers[sum32] < numbers[sum31] && answer == 0) {
 						result = numbers[sum34] + numbers[sum31] + 29;
 						answer = 1;
 						rule = 13;
@@ -212,7 +217,7 @@ int main(void) {
 		while(sum22 >= 0) {
 			int sum23 = 5;
 			while(sum23 >= 0) {
-				if(numbers[sum23] + numbers[sum22] == numbers[sum21] && numbers[sum21] != numbers[sum22] && answer != 1) {
+				if(numbers[sum23] + numbers[sum22] == numbers[sum21] && numbers[sum21] != numbers[sum22] && answer == 0) {
 					result = numbers[sum23] + numbers[sum21] + 22;
 					answer = 1;
 					rule = 12;
@@ -244,7 +249,7 @@ int main(void) {
 						while(seq66 >= 0) {
 							if(numbers[seq61] + 5 == numbers[seq62] + 4 && numbers[seq62] + 4 == numbers[seq63] + 3 && 
 								 numbers[seq63] + 3 == numbers[seq64] + 2 && numbers[seq64] + 2 == numbers[seq65] + 1 &&
-								 numbers[seq65] + 1 == numbers[seq66] && answer != 1) {
+								 numbers[seq65] + 1 == numbers[seq66] && answer == 0) {
 								result = 6 * numbers[seq66] + 21;
 								answer = 1;
 								rule = 11;
@@ -282,7 +287,7 @@ int main(void) {
 					int seq55 = 5;
 					while(seq55 >= 0) {
 						if(numbers[seq51] + 4 == numbers[seq52] + 3 && numbers[seq52] + 3 == numbers[seq53] + 2 &&
-							 numbers[seq53] + 2 == numbers[seq54] + 1 && numbers[seq54] + 1 == numbers[seq55] && answer != 1) {
+							 numbers[seq53] + 2 == numbers[seq54] + 1 && numbers[seq54] + 1 == numbers[seq55] && answer == 0) {
 							result = 5 * numbers[seq55] + 20;
 							answer = 1;
 							rule = 10;
@@ -314,7 +319,7 @@ int main(void) {
 			while (seq43 >= 0) {
 				int seq44 = 5;
 				while (seq44 >= 0) {
-					if(numbers[seq41] + 3 == numbers[seq42] + 2 && numbers[seq42] + 2 == numbers[seq43] + 1 && numbers[seq43] + 1 == numbers[seq44] && answer != 1) {
+					if(numbers[seq41] + 3 == numbers[seq42] + 2 && numbers[seq42] + 2 == numbers[seq43] + 1 && numbers[seq43] + 1 == numbers[seq44] && answer == 0) {
 						result = 4 * numbers[seq44] + 19;
 						answer = 1;
 						rule = 9;
@@ -342,7 +347,7 @@ int main(void) {
 		while (seq32 >= 0) {
 			int seq33 = 5;
 			while (seq33 >= 0) {
-				if(numbers[seq31] + 2 == numbers[seq32] + 1 && numbers[seq32] + 1 == numbers[seq33] && answer != 1) {
+				if(numbers[seq31] + 2 == numbers[seq32] + 1 && numbers[seq32] + 1 == numbers[seq33] && answer == 0) {
 					result = 3 * numbers[seq33] + 18;
 					answer = 1;
 					rule = 8;
@@ -365,7 +370,7 @@ int main(void) {
 	while (seq21 >= 0) {
 		int seq22 = 5;
 		while (seq22 >= 0) {
-			if(numbers[seq21] + 1 == numbers[seq22] && answer != 1) {
+			if(numbers[seq21] + 1 == numbers[seq22] && answer == 0) {
 				result = 2 * numbers[seq22] + 17;
 				answer = 1;
 				rule = 7;
@@ -381,7 +386,7 @@ int main(void) {
 
 	//match-6 rule
 	int match6 = 0;
-	if(numbers[match6] == numbers[match6 + 5] && answer != 1) {
+	if(numbers[match6] == numbers[match6 + 5] && answer == 0) {
 		result = 6 * numbers[match6] + 27;
 		answer = 1;
 		rule = 6;
@@ -392,7 +397,7 @@ int main(void) {
 	//match-5 rule
 	int match5 = 0;
 	while(match5 < 6) {
-		if(numbers[match5] == numbers[match5 + 4] && answer != 1) {
+		if(numbers[match5] == numbers[match5 + 4] && answer == 0) {
 			result = 5 * numbers[match5] + 25;
 			answer = 1;
 			rule = 5;
@@ -406,7 +411,7 @@ int main(void) {
 	//match-4 rule
 	int match4 = 0;
 	while(match4 < 6) {
-		if (numbers[match4] == numbers[match4 + 3] && answer != 1) {
+		if (numbers[match4] == numbers[match4 + 3] && answer == 0) {
 			result = 4 * numbers[match4] + 23;
 			answer = 1;
 			rule = 4;
@@ -420,7 +425,7 @@ int main(void) {
 	//match-3 rule
 	int match3 = 0;
 	while(match3 < 6) {	
-		if(numbers[match3] == numbers[match3 + 2] && answer != 1) {
+		if(numbers[match3] == numbers[match3 + 2] && answer == 0) {
 			result = 3 * numbers[match3] + 21;
 			answer = 1;
 			rule = 3;
@@ -434,7 +439,7 @@ int main(void) {
 	//match-2 rule
 	int match2 = 0;
 	while(match2 < 6) {
-		if (numbers[match2] == numbers[match2 + 1] && answer != 1) {
+		if (numbers[match2] == numbers[match2 + 1] && answer == 0) {
 			result = 2 * numbers[match2] + 19;
 			answer = 1;
 			rule = 2;
@@ -446,7 +451,7 @@ int main(void) {
 	
 
 	//total rule
-	if(answer != 1) {
+	if(answer == 0) {
 		int total = 0;	
 		while (total < 6) {
 			result += numbers[total];
@@ -458,7 +463,9 @@ int main(void) {
 
 
 	//printing feedback to user
-	if (rule == 16) {
+	if (answer == 2) {
+		printf("Invalid input: 6 integers 1..9 in sorted order must be supplied.");
+	} else if (rule == 16) {
 		printf("Rule nom-nom(%d+%d=%d, %d+%d=%d) - ", sumNumber[0], sumNumber[1], sumNumber[2], sumNumber[3], sumNumber[4], sumNumber[5]);
 	} else if (rule == 15) {
 		printf("Rule sum-5(%d+%d+%d+%d+%d=%d) - ", sumNumber[0], sumNumber[1], sumNumber[2], sumNumber[3], sumNumber[4], sumNumber[5]);
@@ -491,6 +498,8 @@ int main(void) {
 	} else {
 		printf("Rule total - ");
 	}
+	if (answer == 1) {
 	printf("score %d.\n", result);
+	}
 	return 0;
 }
