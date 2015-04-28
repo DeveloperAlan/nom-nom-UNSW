@@ -8,6 +8,7 @@ int main(void) {
 	int rule = 0; //To figure out which rule is being used
 	int matchNumber = 0; //For getting the match number in the match formulas
 	int seqNumber[6]; //For getting the chosen sequence numbers in the sequence formulas
+	int sumNumber[6]; //For getting the chosen sum numbers in the sum formulas
 
 	//loop for entering the numbers
 	int dice = 0;
@@ -30,6 +31,29 @@ int main(void) {
 	}
 
 	//calculates result with the rules
+
+	//sum-2 rule
+	//sum11 = Sum 1, Number 1, sum12 = Sum 1, Number 2, etc
+	int sum11 = 5;
+	while(sum11 >= 0) {
+		int sum12 = 5;
+		while(sum12 >= 0) {
+			int sum13 = 5;
+			while(sum13 >= 0) {
+				if(numbers[sum11] + numbers[sum12] == numbers[sum13]) {
+					result = numbers[sum11] + numbers[sum13] + 22;
+					answer = 1;
+					rule = 12;
+					sumNumber[0] = numbers[sum11];
+					sumNumber[1] = numbers[sum12];
+					sumNumber[2] = numbers[sum13];
+				}
+				sum13--;
+			}
+			sum12--;
+		}
+		sum11--;
+	}
 
 	//sequence-6 rule
 	//seq61 = Sequence 6, Number 1, seq62 = Sequence 6, Number 2, etc
@@ -261,7 +285,9 @@ int main(void) {
 
 
 	//printing feedback to user
-	if (rule == 11) {
+	if (rule == 12) {
+		printf("Rule sum-2(%d+%d=%d) - ", sumNumber[0], sumNumber[1], sumNumber[2]);
+	} else if (rule == 11) {
 		printf("Rule sequence-6(%d, %d, %d, %d, %d, %d) - ", seqNumber[0], seqNumber[1], seqNumber[2], seqNumber[3], seqNumber[4], seqNumber[5]);
 	} else if (rule == 10) {
 		printf("Rule sequence-5(%d, %d, %d, %d, %d) - ", seqNumber[0], seqNumber[1], seqNumber[2], seqNumber[3], seqNumber[4]);
@@ -284,6 +310,6 @@ int main(void) {
 	} else {
 		printf("Rule total - ");
 	}
-	printf("score %d\n", result);
+	printf("score %d.\n", result);
 	return 0;
 }
