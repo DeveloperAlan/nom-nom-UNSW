@@ -3,11 +3,11 @@
 int main(void) {
 	//initialize variables
 	int numbers[5];
-	int dice = 0;
 	int result = 0;
 	int answer = 0;
 
 	//loop for entering the numbers
+	int dice = 0;
 	while(dice < 6) {
 		printf("Enter number %d:\n", dice);
 		scanf("%d", &numbers[dice]);
@@ -15,48 +15,58 @@ int main(void) {
 	}
 	
 	//print out the numbers you entered
-	dice = 0;
+	int number = 0;
 	printf("You have entered:");
-	while(dice < 6) {
-		if (dice < 5) {
-			printf(" %d,", numbers[dice]);
+	while(number < 6) {
+		if (number < 5) {
+			printf(" %d,", numbers[number]);
 		} else {
-			printf(" %d\n", numbers[dice]);
+			printf(" %d\n", numbers[number]);
 		};
-		dice++;
+		number++;
 	}
-	
-	printf("lol");
-	dice = 0;
 	
 	//calculates result with the rules	
 
-	
-	while(dice < 6) {
-		//match-3 rule
-		if(numbers[dice] == numbers[dice + 2] && answer != 1) {
-			result = 3 * numbers[dice] + 21;
-			answer = 1;
-			break;
-		}
-		dice++
-	}
-	
-	while(dice < 6) {
-		//match-2 rule
-		if (numbers[dice] == numbers[dice + 1] && answer != 1) {
-			result = numbers[dice] + numbers[dice + 1] + 19;
+	//match-4 rule
+	int match4 = 0;
+	while(match4 < 6) {
+		if (numbers[match4] == numbers[match4 + 3] && answer != 1) {
+			result = 4 * numbers[match4] + 23;
 			answer = 1;
 			break; 
 		}
-		dice++;
+		match4++;
 	}
-		
-	while (dice < 6) {
-		//total rule
-		if(answer != 1) {
-			result += numbers[dice];
-			dice++; 
+
+	//match-3 rule
+	int match3 = 0;
+	while(match3 < 6) {	
+		if(numbers[match3] == numbers[match3 + 2] && answer != 1) {
+			result = 3 * numbers[match3] + 21;
+			answer = 1;
+			break;
+		}
+		match3++;
+	}
+	
+	//match-2 rule
+	int match2 = 0;
+	while(match2 < 6) {
+		if (numbers[match2] == numbers[match2 + 1] && answer != 1) {
+			result = 2 * numbers[match2] + 19;
+			answer = 1;
+			break; 
+		}
+		match2++;
+	}
+	
+	if(answer != 1) {
+		int total = 0;	
+		while (total < 6) {
+			//total rule
+				result += numbers[total];
+				total++; 
 		}
 	}
 	
