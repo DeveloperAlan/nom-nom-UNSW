@@ -31,17 +31,44 @@ int main(void) {
 
 	//calculates result with the rules	
 
-	//sequence-2 rule 
-	int seq2 = 5;
-	while (seq2 >= 0) {
-		if(numbers[seq2] + 1 == numbers[seq2 + 1] && answer != 1) {
-			result = 2 * numbers[seq2 + 1] + 17;
-			answer = 1;
-			rule = 7;
-			seqNumber[0] = numbers[seq2];
-			seqNumber[1] = numbers[seq2 + 1];
+	//sequence-3 rule
+	int seq31 = 5;
+	while (seq31 >= 0) {
+		int seq32 = 5;
+		while (seq32 >= 0) {
+			int seq33 = 5;
+			while (seq33 >= 0) {
+				if(numbers[seq31] + 2 == numbers[seq32] + 1 && numbers[seq32] + 1 == numbers[seq33] && answer != 1) {
+					result = 3 * numbers[seq33] + 18;
+					answer = 1;
+					rule = 8;
+					seqNumber[0] = numbers[seq31];
+					seqNumber[1] = numbers[seq32];
+					seqNumber[2] = numbers[seq33];
+					break;
+				}
+				seq33--;
+			}
+			seq32--;
 		}
-		seq2--;
+		seq31--;
+	}
+	//sequence-2 rule 
+	int seq21 = 5;
+	while (seq21 >= 0) {
+		int seq22 = 5;
+		while (seq22 >= 0) {
+			if(numbers[seq21] + 1 == numbers[seq22] && answer != 1) {
+				result = 2 * numbers[seq22] + 17;
+				answer = 1;
+				rule = 7;
+				seqNumber[0] = numbers[seq21];
+				seqNumber[1] = numbers[seq22];
+				break;
+			}
+			seq22--;
+		}
+		seq21--;
 	}
 
 	//match-6 rule
@@ -116,7 +143,9 @@ int main(void) {
 	}
 
 	//printing feedback to user
-	if (rule == 7) {
+	if (rule == 8) {
+		printf("Rule sequence-3(%d, %d, %d) - ", seqNumber[0], seqNumber[1], seqNumber[2]);
+	} else if (rule == 7) {
 		printf("Rule sequence-2(%d, %d) - ", seqNumber[0], seqNumber[1]);
 	} else if (rule == 6) {
 		printf("Rule match-6(%d) - ", highNumber);
