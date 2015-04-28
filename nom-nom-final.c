@@ -31,6 +31,41 @@ int main(void) {
 
 	//calculates result with the rules
 
+	//sequence-5 rule
+	//seq51 = Sequence 5, Number 1. seq52 = Sequence 5, Number 2, etc
+	int seq51 = 5;
+	while (seq51 >= 0) {
+		int seq52 = 5;
+		while(seq52 >= 0) {
+			int seq53 = 5;
+			while(seq53 >= 0) {
+				int seq54 = 5; 
+				while(seq54 >= 0) {
+					int seq55 = 5;
+					while(seq55 >= 0) {
+						if(numbers[seq51] + 4 == numbers[seq52] + 3 && numbers[seq52] + 3 == numbers[seq53] + 2 &&
+							 numbers[seq53] + 2 == numbers[seq54] + 1 && numbers[seq54] + 1 == numbers[seq55] && answer != 1) {
+							result = 5 * numbers[seq55] + 20;
+							answer = 1;
+							rule = 10;
+							seqNumber[0] = numbers[seq51];
+							seqNumber[1] = numbers[seq52];
+							seqNumber[2] = numbers[seq53];
+							seqNumber[3] = numbers[seq54];
+							seqNumber[4] = numbers[seq55];
+							break;
+						}
+						seq55--;
+					}
+					seq54--;
+				}
+				seq53--;
+			}
+			seq52--;
+		}
+		seq51--;
+	}
+
 	//sequence-4 rule
 	//seq41 = Sequence 4, Number 1. seq42 = Sequence 4, Number 2, etc
 	int seq41 = 5;
@@ -185,7 +220,9 @@ int main(void) {
 
 
 	//printing feedback to user
-	if (rule == 9) {
+	if (rule == 10) {
+		printf("Rule sequence-5(%d, %d, %d, %d, %d) - ", seqNumber[0], seqNumber[1], seqNumber[2], seqNumber[3], seqNumber[4]);
+	} else if (rule == 9) {
 		printf("Rule sequence-4(%d, %d, %d, %d) - ", seqNumber[0], seqNumber[1], seqNumber[2], seqNumber[3]);	
 	} else if (rule == 8) {
 		printf("Rule sequence-3(%d, %d, %d) - ", seqNumber[0], seqNumber[1], seqNumber[2]);
