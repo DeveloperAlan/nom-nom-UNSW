@@ -7,6 +7,7 @@ int main(void) {
 	int answer = 0;
 	int rule = 0;
 	int highNumber = 0;
+	int seqNumber[5];
 
 	//loop for entering the numbers
 	int dice = 0;
@@ -29,6 +30,19 @@ int main(void) {
 	}
 
 	//calculates result with the rules	
+
+	//sequence-2 rule 
+	int seq2 = 5;
+	while (seq2 >= 0) {
+		if(numbers[seq2] + 1 == numbers[seq2 + 1] && answer != 1) {
+			result = 2 * numbers[seq2 + 1] + 17;
+			answer = 1;
+			rule = 7;
+			seqNumber[0] = numbers[seq2];
+			seqNumber[1] = numbers[seq2 + 1];
+		}
+		seq2--;
+	}
 
 	//match-6 rule
 	int match6 = 0;
@@ -102,7 +116,9 @@ int main(void) {
 	}
 
 	//printing feedback to user
-	if (rule == 6) {
+	if (rule == 7) {
+		printf("Rule sequence-2(%d, %d) - ", seqNumber[0], seqNumber[1]);
+	} else if (rule == 6) {
 		printf("Rule match-6(%d) - ", highNumber);
 	} else if (rule == 5) {
 		printf("Rule match-5(%d) - ", highNumber);
