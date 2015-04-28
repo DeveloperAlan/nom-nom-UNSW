@@ -32,25 +32,67 @@ int main(void) {
 
 	//calculates result with the rules
 
+	// // sum-4 rule
+	// // sum41 = Sum 4, Number 1, sum42 = Sum 4, Number 4, etc
+	int sum41 = 4;
+	while(sum41 >= 0) {
+		int sum42 = 4;
+		while(sum42 >= 0) {
+			int sum43 = 4;
+			while(sum43 >= 0) {
+				int sum44 = 4;
+				while(sum44 >= 0) {
+					int sum45 = 4;
+					while(sum45 >= 0) {
+						if (numbers[sum45] + numbers[sum44] + numbers[sum43] + numbers[sum42] == numbers[sum41] && 
+								numbers[sum45] < numbers[sum44] &&
+								numbers[sum44] <= numbers[sum43] &&
+								numbers[sum43] <= numbers[sum42] &&
+								numbers[sum42] < numbers[sum41] &&
+								answer != 1) {
+							result = numbers[sum45] + numbers[sum41] + 38;
+							answer = 1;
+							rule = 14;
+							sumNumber[0] = numbers[sum45];
+							sumNumber[1] = numbers[sum44];
+							sumNumber[2] = numbers[sum43];
+							sumNumber[3] = numbers[sum42];
+							sumNumber[4] = numbers[sum41];
+							break;
+						} 
+						sum45--;
+					}
+					sum44--;
+				}
+				sum43--;
+			} 
+			sum42--;
+		}
+		sum41--;
+	}
+
+
 	//sum-3 rule
 	//sum31 = Sum 3, Number 1, sum32 = Sum 3, Number 2, etc
-	int sum31 = 5;
+	int sum31 = 4;
 	while(sum31 >= 0) {
-		int sum32 = 5;
+		int sum32 = 4;
 		while(sum32 >= 0) {
-			int sum33 = 5;
+			int sum33 = 4;
 			while(sum33 >= 0) {
-				int sum34 = 5;
+				int sum34 = 4;
 				while(sum34 >= 0) {
-					if(numbers[sum33] + numbers[sum32] + numbers[sum31] == numbers[sum34] && numbers[sum31] != numbers[sum32] &&
-						 numbers[sum32] != numbers[sum33] && numbers[sum31] != numbers[sum33] && answer != 1) {
-						result = numbers[sum33] + numbers[sum34] + 29;
+					if(numbers[sum34] + numbers[sum33] + numbers[sum32] == numbers[sum31] && 
+						 numbers[sum34] < numbers[sum33] &&
+						 numbers[sum33] <= numbers[sum32] && 
+						 numbers[sum32] < numbers[sum31] && answer != 1) {
+						result = numbers[sum34] + numbers[sum31] + 29;
 						answer = 1;
 						rule = 13;
-						sumNumber[0] = numbers[sum33];
-						sumNumber[1] = numbers[sum32];
-						sumNumber[2] = numbers[sum31];
-						sumNumber[3] = numbers[sum34];
+						sumNumber[0] = numbers[sum34];
+						sumNumber[1] = numbers[sum33];
+						sumNumber[2] = numbers[sum32];
+						sumNumber[3] = numbers[sum31];
 						break;
 					}
 					sum34--;
@@ -71,15 +113,15 @@ int main(void) {
 		while(sum22 >= 0) {
 			int sum23 = 5;
 			while(sum23 >= 0) {
-				if(numbers[sum22] + numbers[sum21] == numbers[sum23] && numbers[sum21] != numbers[sum22] && answer != 1) {
-					result = numbers[sum22] + numbers[sum23] + 22;
+				if(numbers[sum23] + numbers[sum22] == numbers[sum21] && numbers[sum21] != numbers[sum22] && answer != 1) {
+					result = numbers[sum23] + numbers[sum21] + 22;
 					answer = 1;
 					rule = 12;
-					sumNumber[0] = numbers[sum22];
-					sumNumber[1] = numbers[sum21];
-					sumNumber[2] = numbers[sum23];
+					sumNumber[0] = numbers[sum23];
+					sumNumber[1] = numbers[sum22];
+					sumNumber[2] = numbers[sum21];
 					break;
-				}
+				} 
 				sum23--;
 			}
 			sum22--;
@@ -317,7 +359,9 @@ int main(void) {
 
 
 	//printing feedback to user
-	if (rule == 13) {
+	if (rule == 14) {
+		printf("Rule sum-4(%d+%d+%d+%d=%d) - ", sumNumber[0], sumNumber[1], sumNumber[2], sumNumber[3], sumNumber[4]);
+	} else if (rule == 13) {
 		printf("Rule sum-3(%d+%d+%d=%d) - ", sumNumber[0], sumNumber[1], sumNumber[2], sumNumber[3]);
 	} else if (rule == 12) {
 		printf("Rule sum-2(%d+%d=%d) - ", sumNumber[0], sumNumber[1], sumNumber[2]);

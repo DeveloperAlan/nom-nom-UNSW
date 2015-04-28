@@ -278,8 +278,13 @@ while(t<6){
 			while (p<6){
 				while (h<6){
 					while(y<6){
-							if((arrays[y]+arrays[h]==arrays[p])&&(arrays[e]+arrays[u]==arrays[t])&&(arrays[h]>arrays[y])&&(arrays[u]>arrays[e])
-								&&(arrays[y]!=arrays[h])&&(arrays[y]!=arrays[p])&&(arrays[y]!=arrays[e])&&(arrays[y]!=arrays[u])&&(arrays[y]!=arrays[t])
+							if((arrays[y]+arrays[h]==arrays[p])&&
+                               (arrays[e]+arrays[u]==arrays[t])&&
+                               (arrays[h]>arrays[y])&&
+                               (arrays[u]>arrays[e])&&
+                               (arrays[y]!=arrays[h])&&
+                               (arrays[y]!=arrays[p])&&
+                               (arrays[y]!=arrays[e])&&(arrays[y]!=arrays[u])&&(arrays[y]!=arrays[t])
 								&&(arrays[h]!=arrays[p])&&(arrays[h]!=arrays[e])&&(arrays[h]!=arrays[u])&&(arrays[h]!=arrays[t])&&(arrays[p]!=arrays[e])
 								&&(arrays[p]!=arrays[u])&&(arrays[p]!=arrays[t])&&(arrays[e]!=arrays[u])&&(arrays[e]!=arrays[t])&&(arrays[u]!=arrays[t])){
 							sumScore = arrays[y]+arrays[h]*2+arrays[p]*3+arrays[e]*4+arrays[u]*5+arrays[t]*6;
