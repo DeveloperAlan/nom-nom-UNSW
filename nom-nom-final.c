@@ -30,6 +30,15 @@ int main(void) {
 
 	//calculates result with the rules	
 
+	//match-6 rule
+	int match6 = 0;
+	if(numbers[match6] == numbers[match6 + 5] && answer != 1) {
+		result = 6 * numbers[match6] + 27;
+		answer = 1;
+		rule = 6;
+		highNumber = numbers[match6];
+	}
+
 	//match-5 rule
 	int match5 = 0;
 	while(match5 < 6) {
@@ -93,7 +102,9 @@ int main(void) {
 	}
 
 	//printing feedback to user
-	if (rule == 5) {
+	if (rule == 6) {
+		printf("Rule match-6(%d) - ", highNumber);
+	} else if (rule == 5) {
 		printf("Rule match-5(%d) - ", highNumber);
 	} else if (rule == 4) {
 		printf("Rule match-4(%d) - ", highNumber);
