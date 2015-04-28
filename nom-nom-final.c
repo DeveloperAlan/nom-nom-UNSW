@@ -2,12 +2,12 @@
 
 int main(void) {
 	//initialize variables
-	int numbers[5]; //Array of the numbers entered by user.
+	int numbers[6]; //Array of the numbers entered by user.
 	int result = 0; //The result of the rules
 	int answer = 0; //To see if the answer has been collected already
 	int rule = 0; //To figure out which rule is being used
 	int matchNumber = 0; //For getting the match number in the match formulas
-	int seqNumber[5]; //For getting the chosen sequence numbers in the sequence formulas
+	int seqNumber[6]; //For getting the chosen sequence numbers in the sequence formulas
 
 	//loop for entering the numbers
 	int dice = 0;
@@ -30,6 +30,47 @@ int main(void) {
 	}
 
 	//calculates result with the rules
+
+	//sequence-6 rule
+	//seq61 = Sequence 6, Number 1, seq62 = Sequence 6, Number 2, etc
+	int seq61 = 5;
+	while(seq61 >= 0) {
+		int seq62 = 5;
+		while(seq62 >= 0) {
+			int seq63 = 5;
+			while(seq63 >= 0) {
+				int seq64 = 5;
+				while(seq64 >= 0) {
+					int seq65 = 5;
+					while(seq65 >= 0) {
+						int seq66 = 5;
+						while(seq66 >= 0) {
+							if(numbers[seq61] + 5 == numbers[seq62] + 4 && numbers[seq62] + 4 == numbers[seq63] + 3 && 
+								 numbers[seq63] + 3 == numbers[seq64] + 2 && numbers[seq64] + 2 == numbers[seq65] + 1 &&
+								 numbers[seq65] + 1 == numbers[seq66] && answer != 1) {
+								result = 6 * numbers[seq66] + 21;
+								answer = 1;
+								rule = 11;
+								seqNumber[0] = numbers[seq61];
+								seqNumber[1] = numbers[seq62];
+								seqNumber[2] = numbers[seq63];
+								seqNumber[3] = numbers[seq64];
+								seqNumber[4] = numbers[seq65];
+								seqNumber[5] = numbers[seq66];
+								break;
+							}
+							seq66--;
+						}
+						seq65--;
+					}
+					seq64--;
+				}
+				seq63--;
+			}
+			seq62--;
+		}
+		seq61--;
+ 	}
 
 	//sequence-5 rule
 	//seq51 = Sequence 5, Number 1. seq52 = Sequence 5, Number 2, etc
@@ -220,7 +261,9 @@ int main(void) {
 
 
 	//printing feedback to user
-	if (rule == 10) {
+	if (rule == 11) {
+		printf("Rule sequence-6(%d, %d, %d, %d, %d, %d) - ", seqNumber[0], seqNumber[1], seqNumber[2], seqNumber[3], seqNumber[4], seqNumber[5]);
+	} else if (rule == 10) {
 		printf("Rule sequence-5(%d, %d, %d, %d, %d) - ", seqNumber[0], seqNumber[1], seqNumber[2], seqNumber[3], seqNumber[4]);
 	} else if (rule == 9) {
 		printf("Rule sequence-4(%d, %d, %d, %d) - ", seqNumber[0], seqNumber[1], seqNumber[2], seqNumber[3]);	
