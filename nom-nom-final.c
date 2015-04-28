@@ -33,7 +33,35 @@ int main(void) {
 	//calculates result with the rules
 
 	//sum-3 rule
-	//
+	//sum31 = Sum 3, Number 1, sum32 = Sum 3, Number 2, etc
+	int sum31 = 5;
+	while(sum31 >= 0) {
+		int sum32 = 5;
+		while(sum32 >= 0) {
+			int sum33 = 5;
+			while(sum33 >= 0) {
+				int sum34 = 5;
+				while(sum34 >= 0) {
+					if(numbers[sum33] + numbers[sum32] + numbers[sum31] == numbers[sum34] && numbers[sum31] != numbers[sum32] &&
+						 numbers[sum32] != numbers[sum33] && numbers[sum31] != numbers[sum33] && answer != 1) {
+						result = numbers[sum33] + numbers[sum34] + 29;
+						answer = 1;
+						rule = 13;
+						sumNumber[0] = numbers[sum33];
+						sumNumber[1] = numbers[sum32];
+						sumNumber[2] = numbers[sum31];
+						sumNumber[3] = numbers[sum34];
+						break;
+					}
+					sum34--;
+				}
+				sum33--;
+			}
+			sum32--;
+		}
+		sum31--;
+	}
+
 
 	//sum-2 rule
 	//sum21 = Sum 2, Number 1, sum22 = Sum 2, Number 2, etc
@@ -43,13 +71,14 @@ int main(void) {
 		while(sum22 >= 0) {
 			int sum23 = 5;
 			while(sum23 >= 0) {
-				if(numbers[sum21] + numbers[sum22] == numbers[sum23]) {
-					result = numbers[sum21] + numbers[sum23] + 22;
+				if(numbers[sum22] + numbers[sum21] == numbers[sum23] && numbers[sum21] != numbers[sum22] && answer != 1) {
+					result = numbers[sum22] + numbers[sum23] + 22;
 					answer = 1;
 					rule = 12;
-					sumNumber[0] = numbers[sum21];
-					sumNumber[1] = numbers[sum22];
+					sumNumber[0] = numbers[sum22];
+					sumNumber[1] = numbers[sum21];
 					sumNumber[2] = numbers[sum23];
+					break;
 				}
 				sum23--;
 			}
@@ -288,7 +317,9 @@ int main(void) {
 
 
 	//printing feedback to user
-	if (rule == 12) {
+	if (rule == 13) {
+		printf("Rule sum-3(%d+%d+%d=%d) - ", sumNumber[0], sumNumber[1], sumNumber[2], sumNumber[3]);
+	} else if (rule == 12) {
 		printf("Rule sum-2(%d+%d=%d) - ", sumNumber[0], sumNumber[1], sumNumber[2]);
 	} else if (rule == 11) {
 		printf("Rule sequence-6(%d, %d, %d, %d, %d, %d) - ", seqNumber[0], seqNumber[1], seqNumber[2], seqNumber[3], seqNumber[4], seqNumber[5]);
