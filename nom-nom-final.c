@@ -126,7 +126,6 @@ int main(void) {
 	// sum41 = Sum 4, Number 1, sum42 = Sum 4, Number 4, etc
 	if (answer == 0) {
 		int sum41 = 0;
-		while(sum41 <= 3) {
 			int sum42 = 1;
 			while(sum42 <= 3) {
 				int sum43 = 1;
@@ -170,8 +169,6 @@ int main(void) {
 				} 
 				sum42++;
 			}
-			sum41++;
-		}
 	}
 
 	//sequence-5 rule
