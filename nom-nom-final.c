@@ -3,7 +3,7 @@
 int main(void) {
 	//initialize variables
 	int numbers[6]; //Array of the numbers entered by user.
-	int result = 0; //The result of the rules
+	int result = 0; //The score result of the rules
 	int answer = 0; //To see if the answer has been collected already and if the numbers inputs are valid
 	int rule = 0; //To figure out which rule is being used
 	int ansNumber[6]; //For getting the chosen numbers in the formulas for output
@@ -30,7 +30,6 @@ int main(void) {
 		}
 		check2++;
 	}
-
 
 	//calculates result with the rules
 
@@ -104,6 +103,30 @@ int main(void) {
 		ansNumber[5] = numbers[5];
 	}
 
+	//sequence-6 rule
+	if(numbers[0] + 5 == numbers[1] + 4 && numbers[1] + 4 == numbers[2] + 3 && 
+		 numbers[2] + 3 == numbers[3] + 2 && numbers[3] + 2 == numbers[4] + 1 &&
+		 numbers[4] + 1 == numbers[5] && answer == 0) {
+		result = 6 * numbers[5] + 21;
+		answer = 1;
+		rule = 11;
+		ansNumber[0] = numbers[0];
+		ansNumber[1] = numbers[1];
+		ansNumber[2] = numbers[2];
+		ansNumber[3] = numbers[3];
+		ansNumber[4] = numbers[4];
+		ansNumber[5] = numbers[5];
+	}
+
+	//match-6 rule
+	int match6 = 0;
+	if(numbers[match6] == numbers[match6 + 5] && answer == 0) {
+		result = 6 * numbers[match6] + 27;
+		answer = 1;
+		rule = 6;
+		ansNumber[0] = numbers[match6];
+	}
+
 	// sum-4 rule
 	// sum41 = Sum 4, Number 1, sum42 = Sum 4, Number 4, etc
 	int sum41 = 5;
@@ -143,80 +166,6 @@ int main(void) {
 		sum41--;
 	}
 
-
-	//sum-3 rule
-	//sum31 = Sum 3, Number 1, sum32 = Sum 3, Number 2, etc
-	int sum31 = 5;
-	while(sum31 >= 0) {
-		int sum32 = 5;
-		while(sum32 >= 0) {
-			int sum33 = 5;
-			while(sum33 >= 0) {
-				int sum34 = 5;
-				while(sum34 >= 0) {
-					if(numbers[sum34] + numbers[sum33] + numbers[sum32] == numbers[sum31] && 
-						 numbers[sum34] < numbers[sum33] &&
-						 numbers[sum33] <= numbers[sum32] && 
-						 numbers[sum32] < numbers[sum31] && answer == 0) {
-						result = numbers[sum34] + numbers[sum31] + 29;
-						answer = 1;
-						rule = 13;
-						ansNumber[0] = numbers[sum34];
-						ansNumber[1] = numbers[sum33];
-						ansNumber[2] = numbers[sum32];
-						ansNumber[3] = numbers[sum31];
-						break;
-					}
-					sum34--;
-				}
-				sum33--;
-			}
-			sum32--;
-		}
-		sum31--;
-	}
-
-
-	//sum-2 rule
-	//sum21 = Sum 2, Number 1, sum22 = Sum 2, Number 2, etc
-	int sum21 = 5;
-	while(sum21 >= 0) {
-		int sum22 = 5;
-		while(sum22 >= 0) {
-			int sum23 = 5;
-			while(sum23 >= 0) {
-				if(numbers[sum23] + numbers[sum22] == numbers[sum21] && numbers[sum21] != numbers[sum22] && answer == 0) {
-					result = numbers[sum23] + numbers[sum21] + 22;
-					answer = 1;
-					rule = 12;
-					ansNumber[0] = numbers[sum23];
-					ansNumber[1] = numbers[sum22];
-					ansNumber[2] = numbers[sum21];
-					break;
-				} 
-				sum23--;
-			}
-			sum22--;
-		}
-		sum21--;
-	}
-
-	//sequence-6 rule
-	if(numbers[0] + 5 == numbers[1] + 4 && numbers[1] + 4 == numbers[2] + 3 && 
-		 numbers[2] + 3 == numbers[3] + 2 && numbers[3] + 2 == numbers[4] + 1 &&
-		 numbers[4] + 1 == numbers[5] && answer == 0) {
-		result = 6 * numbers[5] + 21;
-		answer = 1;
-		rule = 11;
-		ansNumber[0] = numbers[0];
-		ansNumber[1] = numbers[1];
-		ansNumber[2] = numbers[2];
-		ansNumber[3] = numbers[3];
-		ansNumber[4] = numbers[4];
-		ansNumber[5] = numbers[5];
-	}
-
-
 	//sequence-5 rule
 	//seq51 = Sequence 5, Number 1. seq52 = Sequence 5, Number 2, etc
 	int seq51 = 5;
@@ -252,6 +201,51 @@ int main(void) {
 		seq51--;
 	}
 
+	//match-5 rule
+	int match5 = 0;
+	while(match5 < 6) {
+		if(numbers[match5] == numbers[match5 + 4] && answer == 0) {
+			result = 5 * numbers[match5] + 25;
+			answer = 1;
+			rule = 5;
+			ansNumber[0] = numbers[match5];
+			break;
+		}
+		match5++;
+	}
+
+	//sum-3 rule
+	//sum31 = Sum 3, Number 1, sum32 = Sum 3, Number 2, etc
+	int sum31 = 5;
+	while(sum31 >= 0) {
+		int sum32 = 5;
+		while(sum32 >= 0) {
+			int sum33 = 5;
+			while(sum33 >= 0) {
+				int sum34 = 5;
+				while(sum34 >= 0) {
+					if(numbers[sum34] + numbers[sum33] + numbers[sum32] == numbers[sum31] && 
+						 numbers[sum34] < numbers[sum33] &&
+						 numbers[sum33] <= numbers[sum32] && 
+						 numbers[sum32] < numbers[sum31] && answer == 0) {
+						result = numbers[sum34] + numbers[sum31] + 29;
+						answer = 1;
+						rule = 13;
+						ansNumber[0] = numbers[sum34];
+						ansNumber[1] = numbers[sum33];
+						ansNumber[2] = numbers[sum32];
+						ansNumber[3] = numbers[sum31];
+						break;
+					}
+					sum34--;
+				}
+				sum33--;
+			}
+			sum32--;
+		}
+		sum31--;
+	}
+
 	//sequence-4 rule
 	//seq41 = Sequence 4, Number 1. seq42 = Sequence 4, Number 2, etc
 	int seq41 = 5;
@@ -281,6 +275,18 @@ int main(void) {
 		seq41--;
 	}	
 
+	//match-4 rule
+	int match4 = 0;
+	while(match4 < 6) {
+		if (numbers[match4] == numbers[match4 + 3] && answer == 0) {
+			result = 4 * numbers[match4] + 23;
+			answer = 1;
+			rule = 4;
+			ansNumber[0] = numbers[match4];
+			break; 
+		}
+		match4++;
+	}
 
 	//sequence-3 rule
 	//seq31 = Sequence 3, Number 1. seq32 = Sequence 3, Number 2, etc
@@ -306,6 +312,44 @@ int main(void) {
 		seq31--;
 	}
 
+	//match-3 rule
+	int match3 = 0;
+	while(match3 < 6) {	
+		if(numbers[match3] == numbers[match3 + 2] && answer == 0) {
+			result = 3 * numbers[match3] + 21;
+			answer = 1;
+			rule = 3;
+			ansNumber[0] = numbers[match3];
+			break;
+		}
+		match3++;
+	}
+
+	//sum-2 rule
+	//sum21 = Sum 2, Number 1, sum22 = Sum 2, Number 2, etc
+	int sum21 = 5;
+	while(sum21 >= 0) {
+		int sum22 = 5;
+		while(sum22 >= 0) {
+			int sum23 = 5;
+			while(sum23 >= 0) {
+				if(numbers[sum23] + numbers[sum22] == numbers[sum21] && numbers[sum21] != numbers[sum22] && answer == 0) {
+					result = numbers[sum23] + numbers[sum21] + 22;
+					answer = 1;
+					rule = 12;
+					ansNumber[0] = numbers[sum23];
+					ansNumber[1] = numbers[sum22];
+					ansNumber[2] = numbers[sum21];
+					break;
+				} 
+				sum23--;
+			}
+			sum22--;
+		}
+		sum21--;
+	}
+
+	
 
 	//sequence-2 rule 
 	//seq21 = Sequence 2, Number 1. seq22 = Sequence 2, Number 2
@@ -326,59 +370,6 @@ int main(void) {
 		seq21--;
 	}
 
-
-	//match-6 rule
-	int match6 = 0;
-	if(numbers[match6] == numbers[match6 + 5] && answer == 0) {
-		result = 6 * numbers[match6] + 27;
-		answer = 1;
-		rule = 6;
-		ansNumber[0] = numbers[match6];
-	}
-
-
-	//match-5 rule
-	int match5 = 0;
-	while(match5 < 6) {
-		if(numbers[match5] == numbers[match5 + 4] && answer == 0) {
-			result = 5 * numbers[match5] + 25;
-			answer = 1;
-			rule = 5;
-			ansNumber[0] = numbers[match5];
-			break;
-		}
-		match5++;
-	}
-
-
-	//match-4 rule
-	int match4 = 0;
-	while(match4 < 6) {
-		if (numbers[match4] == numbers[match4 + 3] && answer == 0) {
-			result = 4 * numbers[match4] + 23;
-			answer = 1;
-			rule = 4;
-			ansNumber[0] = numbers[match4];
-			break; 
-		}
-		match4++;
-	}
-
-
-	//match-3 rule
-	int match3 = 0;
-	while(match3 < 6) {	
-		if(numbers[match3] == numbers[match3 + 2] && answer == 0) {
-			result = 3 * numbers[match3] + 21;
-			answer = 1;
-			rule = 3;
-			ansNumber[0] = numbers[match3];
-			break;
-		}
-		match3++;
-	}
-	
-
 	//match-2 rule
 	int match2 = 0;
 	while(match2 < 6) {
@@ -391,7 +382,6 @@ int main(void) {
 		}
 		match2++;
 	}
-	
 
 	//total rule
 	if(answer == 0) {
@@ -403,7 +393,6 @@ int main(void) {
 		rule = 1;
 		answer = 1;
 	}
-
 
 	//printing feedback to user
 	if (answer == 2) {
