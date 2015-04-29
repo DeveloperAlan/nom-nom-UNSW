@@ -94,17 +94,17 @@ int main(void) {
 
 	// sum-5 rule
 	// sum51 = Sum 5, Number 1, sum52 = Sum 5, Number 5, etc
-							if (numbers[0] + numbers[1] + numbers[2] + numbers[3] + numbers[4] == numbers[5] && 
-									answer == 0) {
-								result = numbers[0] + numbers[5] + 49;
-								answer = 1;
-								rule = 15;
-								sumNumber[0] = numbers[0];
-								sumNumber[1] = numbers[1];
-								sumNumber[2] = numbers[2];
-								sumNumber[3] = numbers[3];
-								sumNumber[4] = numbers[4];
-								sumNumber[5] = numbers[5];
+	if (numbers[0] + numbers[1] + numbers[2] + numbers[3] + numbers[4] == numbers[5] && 
+			answer == 0) {
+		result = numbers[0] + numbers[5] + 49;
+		answer = 1;
+		rule = 15;
+		sumNumber[0] = numbers[0];
+		sumNumber[1] = numbers[1];
+		sumNumber[2] = numbers[2];
+		sumNumber[3] = numbers[3];
+		sumNumber[4] = numbers[4];
+		sumNumber[5] = numbers[5];
 	}
 
 	// sum-4 rule
@@ -206,44 +206,20 @@ int main(void) {
 
 	//sequence-6 rule
 	//seq61 = Sequence 6, Number 1, seq62 = Sequence 6, Number 2, etc
-	int seq61 = 5;
-	while(seq61 >= 0) {
-		int seq62 = 5;
-		while(seq62 >= 0) {
-			int seq63 = 5;
-			while(seq63 >= 0) {
-				int seq64 = 5;
-				while(seq64 >= 0) {
-					int seq65 = 5;
-					while(seq65 >= 0) {
-						int seq66 = 5;
-						while(seq66 >= 0) {
-							if(numbers[seq61] + 5 == numbers[seq62] + 4 && numbers[seq62] + 4 == numbers[seq63] + 3 && 
-								 numbers[seq63] + 3 == numbers[seq64] + 2 && numbers[seq64] + 2 == numbers[seq65] + 1 &&
-								 numbers[seq65] + 1 == numbers[seq66] && answer == 0) {
-								result = 6 * numbers[seq66] + 21;
-								answer = 1;
-								rule = 11;
-								seqNumber[0] = numbers[seq61];
-								seqNumber[1] = numbers[seq62];
-								seqNumber[2] = numbers[seq63];
-								seqNumber[3] = numbers[seq64];
-								seqNumber[4] = numbers[seq65];
-								seqNumber[5] = numbers[seq66];
-								break;
-							}
-							seq66--;
-						}
-						seq65--;
-					}
-					seq64--;
-				}
-				seq63--;
-			}
-			seq62--;
-		}
-		seq61--;
- 	}
+	if(numbers[0] + 5 == numbers[1] + 4 && numbers[1] + 4 == numbers[2] + 3 && 
+		 numbers[2] + 3 == numbers[3] + 2 && numbers[3] + 2 == numbers[4] + 1 &&
+		 numbers[4] + 1 == numbers[5] && answer == 0) {
+		result = 6 * numbers[5] + 21;
+		answer = 1;
+		rule = 11;
+		seqNumber[0] = numbers[0];
+		seqNumber[1] = numbers[1];
+		seqNumber[2] = numbers[2];
+		seqNumber[3] = numbers[3];
+		seqNumber[4] = numbers[4];
+		seqNumber[5] = numbers[5];
+	}
+
 
 	//sequence-5 rule
 	//seq51 = Sequence 5, Number 1. seq52 = Sequence 5, Number 2, etc
