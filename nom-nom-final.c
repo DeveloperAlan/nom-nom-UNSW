@@ -94,46 +94,17 @@ int main(void) {
 
 	// sum-5 rule
 	// sum51 = Sum 5, Number 1, sum52 = Sum 5, Number 5, etc
-	int sum51 = 5;
-	while(sum51 >= 0) {
-		int sum52 = 5; 
-		while(sum52 >= 0) {
-			int sum53 = 5;
-			while(sum53 >= 0) {
-				int sum54 = 5;
-				while(sum54 >= 0) {
-					int sum55 = 5;
-					while(sum55 >= 0) {
-						int sum56 = 5;
-						while(sum56 >= 0) {
-							if (numbers[sum56] + numbers[sum55] + numbers[sum54] + numbers[sum53] + numbers[sum52] == numbers[sum51] && 
-									numbers[sum56] <= numbers[sum55] &&
-									numbers[sum55] <= numbers[sum54] &&
-									numbers[sum54] <= numbers[sum53] &&
-									numbers[sum53] <= numbers[sum52] &&
+							if (numbers[0] + numbers[1] + numbers[2] + numbers[3] + numbers[4] == numbers[5] && 
 									answer == 0) {
-								result = numbers[sum56] + numbers[sum51] + 49;
+								result = numbers[0] + numbers[5] + 49;
 								answer = 1;
 								rule = 15;
-								sumNumber[0] = numbers[sum56];
-								sumNumber[1] = numbers[sum55];
-								sumNumber[2] = numbers[sum54];
-								sumNumber[3] = numbers[sum53];
-								sumNumber[4] = numbers[sum52];
-								sumNumber[5] = numbers[sum51];
-								break;
-							}
-							sum56--;
-						}
-						sum55--;
-					}
-					sum54--;
-				}
-				sum53--;
-			}
-			sum52--;
-		}
-		sum51--;
+								sumNumber[0] = numbers[0];
+								sumNumber[1] = numbers[1];
+								sumNumber[2] = numbers[2];
+								sumNumber[3] = numbers[3];
+								sumNumber[4] = numbers[4];
+								sumNumber[5] = numbers[5];
 	}
 
 	// sum-4 rule
