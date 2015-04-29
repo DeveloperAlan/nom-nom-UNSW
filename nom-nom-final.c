@@ -41,39 +41,48 @@ int main(void) {
 	//nom-nom rule
 	int nom = 5;
 	while(nom >= 0) {
-		int a = 1;
-		while (a <= 5) {
-			int b = 1;
-			while (b <= 5) {
-				int c = 1;
-				while (c <= 5) {
-					int d = 1;
-					while (d <= 5) {
-						int e = 1;
-						while (e <= 5) {
-							if (numbers[nom] + numbers[nom + a] == numbers[nom + b] && numbers[nom + c] + numbers[nom + d] == numbers[nom + e] && 
-									a != b && a != c && a != d && a != b && b != c && b != d && b != e && c != d && c != e && d != e &&
+		int arrayPos1 = 1;
+		while (arrayPos1 <= 5) {
+			int arrayPos2 = 1;
+			while (arrayPos2 <= 5) {
+				int arrayPos3 = 1;
+				while (arrayPos3 <= 5) {
+					int arrayPos4 = 1;
+					while (arrayPos4 <= 5) {
+						int arrayPos5 = 1;
+						while (arrayPos5 <= 5) {
+							if (numbers[nom] + numbers[nom + arrayPos1] == numbers[nom + arrayPos2] && numbers[nom + arrayPos3] + numbers[nom + arrayPos4] == numbers[nom + arrayPos5] && 
+									arrayPos1 != arrayPos2 &&
+									arrayPos1 != arrayPos3 && 
+									arrayPos1 != arrayPos4 && 
+									arrayPos1 != arrayPos5 && 
+									arrayPos2 != arrayPos3 && 
+									arrayPos2 != arrayPos4 && 
+									arrayPos2 != arrayPos5 && 
+									arrayPos3 != arrayPos4 && 
+									arrayPos3 != arrayPos5 && 
+									arrayPos4 != arrayPos5 &&
 									answer == 0) {
-								result = numbers[nom] + (2 * numbers[nom + 2]) + (3 * numbers[nom + 3]) + (4 * numbers[nom + 1]) + (5 * numbers[nom + 4]) + (6 * numbers[nom + 5]);
+								result = numbers[nom] + (2 * numbers[nom + arrayPos1]) + (3 * numbers[nom + arrayPos2]) + (4 * numbers[nom + arrayPos3]) + (5 * numbers[nom + arrayPos4]) + (6 * numbers[nom + arrayPos5]);
 								answer = 1;
 								rule = 16;
 								ansNumber[0] = numbers[nom];
-								ansNumber[1] = numbers[nom + 2];
-								ansNumber[2] = numbers[nom + 3];
-								ansNumber[3] = numbers[nom + 1];
-								ansNumber[4] = numbers[nom + 4];
-								ansNumber[5] = numbers[nom + 5];
+								ansNumber[1] = numbers[nom + arrayPos1];
+								ansNumber[2] = numbers[nom + arrayPos2];
+								ansNumber[3] = numbers[nom + arrayPos3];
+								ansNumber[4] = numbers[nom + arrayPos4];
+								ansNumber[5] = numbers[nom + arrayPos5];
 								break;
 							}
-							e++;
+							arrayPos5++;
 						}
-						d++;
+						arrayPos4++;
 					}
-					c++;
+					arrayPos3++;
 				}
-				b++;
+				arrayPos2++;
 			}
-			a++;
+			arrayPos1++;
 		}
 		nom--;
 	}
