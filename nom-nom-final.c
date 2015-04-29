@@ -1,3 +1,8 @@
+//The Nom-Nom assignment 
+
+//I chose to changed the order of the rules from rare rules that appear in the game to more common ones so that the game can pick up the highest score that has been played in
+//in the game. 
+
 #include <stdio.h>
 
 int main(void) {
