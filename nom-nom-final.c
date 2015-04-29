@@ -124,16 +124,16 @@ int main(void) {
 
 	// sum-4 rule
 	// sum41 = Sum 4, Number 1, sum42 = Sum 4, Number 4, etc
-	int sum41 = 5;
-	while(sum41 >= 0) {
+	int sum41 = 0;
+	while(sum41 <= 3) {
 		int sum42 = 1;
-		while(sum42 <= 5) {
+		while(sum42 <= 3) {
 			int sum43 = 1;
-			while(sum43 <= 5) {
+			while(sum43 <= 3) {
 				int sum44 = 1;
-				while(sum44 <= 5) {
+				while(sum44 <= 3) {
 					int sum45 = 1;
-					while(sum45 <= 5) {
+					while(sum45 <= 3) {
 						if (numbers[sum41] + numbers[sum41 + 1] + numbers[sum41 + 2] + numbers[sum41 + 3] == numbers[sum41 + 4] && answer == 0) {
 							result = numbers[sum41] + numbers[sum41 + 4] + 38;
 							answer = 1;
@@ -170,7 +170,7 @@ int main(void) {
 			} 
 			sum42++;
 		}
-		sum41--;
+		sum41++;
 	}
 
 	//sequence-5 rule
