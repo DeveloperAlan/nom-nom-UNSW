@@ -39,7 +39,7 @@ int main(void) {
 	//calculates result with the rules
 
 	//nom-nom rule
-	int nom = 1;
+	int nom = 0;
 	int arrayPos1 = 1;
 	while (arrayPos1 <= 5) {
 		int arrayPos2 = 1;
