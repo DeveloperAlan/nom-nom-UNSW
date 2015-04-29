@@ -7,8 +7,7 @@ int main(void) {
 	int answer = 0; //To see if the answer has been collected already
 	int rule = 0; //To figure out which rule is being used
 	int matchNumber = 0; //For getting the match number in the match formulas
-	int seqNumber[6]; //For getting the chosen sequence numbers in the sequence formulas
-	int sumNumber[6]; //For getting the chosen sum numbers in the sum and nomformulas
+	int ansNumber[6]; //For getting the chosen numbers in the formulas
 
 	//loop for entering the numbers
 	int scan = 0;
@@ -71,12 +70,12 @@ int main(void) {
 								result = numbers[nom6] + (2 * numbers[nom5]) + (3 * numbers[nom4]) + (4 * numbers[nom3]) + (5 * numbers[nom2]) + (6 * numbers[nom1]);
 								answer = 1;
 								rule = 16;
-								sumNumber[0] = numbers[nom6];
-								sumNumber[1] = numbers[nom5];
-								sumNumber[2] = numbers[nom4];
-								sumNumber[3] = numbers[nom3];
-								sumNumber[4] = numbers[nom2];
-								sumNumber[5] = numbers[nom1];
+								ansNumber[0] = numbers[nom6];
+								ansNumber[1] = numbers[nom5];
+								ansNumber[2] = numbers[nom4];
+								ansNumber[3] = numbers[nom3];
+								ansNumber[4] = numbers[nom2];
+								ansNumber[5] = numbers[nom1];
 								break;
 							}
 							nom6--;
@@ -93,18 +92,17 @@ int main(void) {
 	}
 
 	// sum-5 rule
-	// sum51 = Sum 5, Number 1, sum52 = Sum 5, Number 5, etc
 	if (numbers[0] + numbers[1] + numbers[2] + numbers[3] + numbers[4] == numbers[5] && 
 			answer == 0) {
 		result = numbers[0] + numbers[5] + 49;
 		answer = 1;
 		rule = 15;
-		sumNumber[0] = numbers[0];
-		sumNumber[1] = numbers[1];
-		sumNumber[2] = numbers[2];
-		sumNumber[3] = numbers[3];
-		sumNumber[4] = numbers[4];
-		sumNumber[5] = numbers[5];
+		ansNumber[0] = numbers[0];
+		ansNumber[1] = numbers[1];
+		ansNumber[2] = numbers[2];
+		ansNumber[3] = numbers[3];
+		ansNumber[4] = numbers[4];
+		ansNumber[5] = numbers[5];
 	}
 
 	// sum-4 rule
@@ -128,11 +126,11 @@ int main(void) {
 							result = numbers[sum45] + numbers[sum41] + 38;
 							answer = 1;
 							rule = 14;
-							sumNumber[0] = numbers[sum45];
-							sumNumber[1] = numbers[sum44];
-							sumNumber[2] = numbers[sum43];
-							sumNumber[3] = numbers[sum42];
-							sumNumber[4] = numbers[sum41];
+							ansNumber[0] = numbers[sum45];
+							ansNumber[1] = numbers[sum44];
+							ansNumber[2] = numbers[sum43];
+							ansNumber[3] = numbers[sum42];
+							ansNumber[4] = numbers[sum41];
 							break;
 						} 
 						sum45--;
@@ -164,10 +162,10 @@ int main(void) {
 						result = numbers[sum34] + numbers[sum31] + 29;
 						answer = 1;
 						rule = 13;
-						sumNumber[0] = numbers[sum34];
-						sumNumber[1] = numbers[sum33];
-						sumNumber[2] = numbers[sum32];
-						sumNumber[3] = numbers[sum31];
+						ansNumber[0] = numbers[sum34];
+						ansNumber[1] = numbers[sum33];
+						ansNumber[2] = numbers[sum32];
+						ansNumber[3] = numbers[sum31];
 						break;
 					}
 					sum34--;
@@ -192,9 +190,9 @@ int main(void) {
 					result = numbers[sum23] + numbers[sum21] + 22;
 					answer = 1;
 					rule = 12;
-					sumNumber[0] = numbers[sum23];
-					sumNumber[1] = numbers[sum22];
-					sumNumber[2] = numbers[sum21];
+					ansNumber[0] = numbers[sum23];
+					ansNumber[1] = numbers[sum22];
+					ansNumber[2] = numbers[sum21];
 					break;
 				} 
 				sum23--;
@@ -205,19 +203,18 @@ int main(void) {
 	}
 
 	//sequence-6 rule
-	//seq61 = Sequence 6, Number 1, seq62 = Sequence 6, Number 2, etc
 	if(numbers[0] + 5 == numbers[1] + 4 && numbers[1] + 4 == numbers[2] + 3 && 
 		 numbers[2] + 3 == numbers[3] + 2 && numbers[3] + 2 == numbers[4] + 1 &&
 		 numbers[4] + 1 == numbers[5] && answer == 0) {
 		result = 6 * numbers[5] + 21;
 		answer = 1;
 		rule = 11;
-		seqNumber[0] = numbers[0];
-		seqNumber[1] = numbers[1];
-		seqNumber[2] = numbers[2];
-		seqNumber[3] = numbers[3];
-		seqNumber[4] = numbers[4];
-		seqNumber[5] = numbers[5];
+		ansNumber[0] = numbers[0];
+		ansNumber[1] = numbers[1];
+		ansNumber[2] = numbers[2];
+		ansNumber[3] = numbers[3];
+		ansNumber[4] = numbers[4];
+		ansNumber[5] = numbers[5];
 	}
 
 
@@ -238,11 +235,11 @@ int main(void) {
 							result = 5 * numbers[seq55] + 20;
 							answer = 1;
 							rule = 10;
-							seqNumber[0] = numbers[seq51];
-							seqNumber[1] = numbers[seq52];
-							seqNumber[2] = numbers[seq53];
-							seqNumber[3] = numbers[seq54];
-							seqNumber[4] = numbers[seq55];
+							ansNumber[0] = numbers[seq51];
+							ansNumber[1] = numbers[seq52];
+							ansNumber[2] = numbers[seq53];
+							ansNumber[3] = numbers[seq54];
+							ansNumber[4] = numbers[seq55];
 							break;
 						}
 						seq55--;
@@ -270,10 +267,10 @@ int main(void) {
 						result = 4 * numbers[seq44] + 19;
 						answer = 1;
 						rule = 9;
-						seqNumber[0] = numbers[seq41];
-						seqNumber[1] = numbers[seq42];
-						seqNumber[2] = numbers[seq43];
-						seqNumber[3] = numbers[seq44];
+						ansNumber[0] = numbers[seq41];
+						ansNumber[1] = numbers[seq42];
+						ansNumber[2] = numbers[seq43];
+						ansNumber[3] = numbers[seq44];
 						break; 
 					}
 					seq44--;
@@ -298,9 +295,9 @@ int main(void) {
 					result = 3 * numbers[seq33] + 18;
 					answer = 1;
 					rule = 8;
-					seqNumber[0] = numbers[seq31];
-					seqNumber[1] = numbers[seq32];
-					seqNumber[2] = numbers[seq33];
+					ansNumber[0] = numbers[seq31];
+					ansNumber[1] = numbers[seq32];
+					ansNumber[2] = numbers[seq33];
 					break;
 				}
 				seq33--;
@@ -321,8 +318,8 @@ int main(void) {
 				result = 2 * numbers[seq22] + 17;
 				answer = 1;
 				rule = 7;
-				seqNumber[0] = numbers[seq21];
-				seqNumber[1] = numbers[seq22];
+				ansNumber[0] = numbers[seq21];
+				ansNumber[1] = numbers[seq22];
 				break;
 			}
 			seq22--;
@@ -413,25 +410,25 @@ int main(void) {
 	if (answer == 2) {
 		printf("Invalid input: 6 integers 1..9 in sorted order must be supplied.");
 	} else if (rule == 16) {
-		printf("Rule nom-nom(%d+%d=%d, %d+%d=%d) - ", sumNumber[0], sumNumber[1], sumNumber[2], sumNumber[3], sumNumber[4], sumNumber[5]);
+		printf("Rule nom-nom(%d+%d=%d, %d+%d=%d) - ", ansNumber[0], ansNumber[1], ansNumber[2], ansNumber[3], ansNumber[4], ansNumber[5]);
 	} else if (rule == 15) {
-		printf("Rule sum-5(%d+%d+%d+%d+%d=%d) - ", sumNumber[0], sumNumber[1], sumNumber[2], sumNumber[3], sumNumber[4], sumNumber[5]);
+		printf("Rule sum-5(%d+%d+%d+%d+%d=%d) - ", ansNumber[0], ansNumber[1], ansNumber[2], ansNumber[3], ansNumber[4], ansNumber[5]);
 	} else if (rule == 14) {
-		printf("Rule sum-4(%d+%d+%d+%d=%d) - ", sumNumber[0], sumNumber[1], sumNumber[2], sumNumber[3], sumNumber[4]);
+		printf("Rule sum-4(%d+%d+%d+%d=%d) - ", ansNumber[0], ansNumber[1], ansNumber[2], ansNumber[3], ansNumber[4]);
 	} else if (rule == 13) {
-		printf("Rule sum-3(%d+%d+%d=%d) - ", sumNumber[0], sumNumber[1], sumNumber[2], sumNumber[3]);
+		printf("Rule sum-3(%d+%d+%d=%d) - ", ansNumber[0], ansNumber[1], ansNumber[2], ansNumber[3]);
 	} else if (rule == 12) {
-		printf("Rule sum-2(%d+%d=%d) - ", sumNumber[0], sumNumber[1], sumNumber[2]);
+		printf("Rule sum-2(%d+%d=%d) - ", ansNumber[0], ansNumber[1], ansNumber[2]);
 	} else if (rule == 11) {
-		printf("Rule sequence-6(%d, %d, %d, %d, %d, %d) - ", seqNumber[0], seqNumber[1], seqNumber[2], seqNumber[3], seqNumber[4], seqNumber[5]);
+		printf("Rule sequence-6(%d, %d, %d, %d, %d, %d) - ", ansNumber[0], ansNumber[1], ansNumber[2], ansNumber[3], ansNumber[4], ansNumber[5]);
 	} else if (rule == 10) {
-		printf("Rule sequence-5(%d, %d, %d, %d, %d) - ", seqNumber[0], seqNumber[1], seqNumber[2], seqNumber[3], seqNumber[4]);
+		printf("Rule sequence-5(%d, %d, %d, %d, %d) - ", ansNumber[0], ansNumber[1], ansNumber[2], ansNumber[3], ansNumber[4]);
 	} else if (rule == 9) {
-		printf("Rule sequence-4(%d, %d, %d, %d) - ", seqNumber[0], seqNumber[1], seqNumber[2], seqNumber[3]);	
+		printf("Rule sequence-4(%d, %d, %d, %d) - ", ansNumber[0], ansNumber[1], ansNumber[2], ansNumber[3]);	
 	} else if (rule == 8) {
-		printf("Rule sequence-3(%d, %d, %d) - ", seqNumber[0], seqNumber[1], seqNumber[2]);
+		printf("Rule sequence-3(%d, %d, %d) - ", ansNumber[0], ansNumber[1], ansNumber[2]);
 	} else if (rule == 7) {
-		printf("Rule sequence-2(%d, %d) - ", seqNumber[0], seqNumber[1]);
+		printf("Rule sequence-2(%d, %d) - ", ansNumber[0], ansNumber[1]);
 	} else if (rule == 6) {
 		printf("Rule match-6(%d) - ", matchNumber);
 	} else if (rule == 5) {
