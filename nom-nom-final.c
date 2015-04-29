@@ -39,59 +39,43 @@ int main(void) {
 	//calculates result with the rules
 
 	//nom-nom rule
-	int nom1 = 5;
-	while(nom1 >= 0) {
-		int nom2 = 5; 
-		while(nom2 >= 0) {
-			int nom3 = 5;
-			while(nom3 >= 0) {
-				int nom4 = 5;
-				while(nom4 >= 0) {
-					int nom5 = 5;
-					while(nom5 >= 0) {
-						int nom6 = 5;
-						while(nom6 >= 0) {
-							if (numbers[nom6] + numbers[nom5] == numbers[nom4] && numbers[nom3] + numbers[nom2] == numbers[nom1] && 
-									numbers[nom5] > numbers[nom6] &&
-									numbers[nom2] > numbers[nom3] &&
-									numbers[nom6] != numbers[nom5] &&
-									numbers[nom6] != numbers[nom4] &&
-									numbers[nom6] != numbers[nom3] &&
-									numbers[nom6] != numbers[nom2] && 
-									numbers[nom6] != numbers[nom1] &&
-									numbers[nom5] != numbers[nom4] &&
-									numbers[nom5] != numbers[nom3] &&
-									numbers[nom5] != numbers[nom2] &&
-									numbers[nom5] != numbers[nom1] &&
-									numbers[nom4] != numbers[nom3] &&
-									numbers[nom4] != numbers[nom2] &&
-									numbers[nom4] != numbers[nom1] &&
-									numbers[nom3] != numbers[nom2] &&
-									numbers[nom3] != numbers[nom1] &&
-									numbers[nom2] != numbers[nom1] &&
+	int nom = 5;
+	while(nom >= 0) {
+		int a = 1;
+		while (a <= 5) {
+			int b = 1;
+			while (b <= 5) {
+				int c = 1;
+				while (c <= 5) {
+					int d = 1;
+					while (d <= 5) {
+						int e = 1;
+						while (e <= 5) {
+							if (numbers[nom] + numbers[nom + a] == numbers[nom + b] && numbers[nom + c] + numbers[nom + d] == numbers[nom + e] && 
+									a != b && a != c && a != d && a != b && b != c && b != d && b != e && c != d && c != e && d != e &&
 									answer == 0) {
-								result = numbers[nom6] + (2 * numbers[nom5]) + (3 * numbers[nom4]) + (4 * numbers[nom3]) + (5 * numbers[nom2]) + (6 * numbers[nom1]);
+								result = numbers[nom] + (2 * numbers[nom + 2]) + (3 * numbers[nom + 3]) + (4 * numbers[nom + 1]) + (5 * numbers[nom + 4]) + (6 * numbers[nom + 5]);
 								answer = 1;
 								rule = 16;
-								ansNumber[0] = numbers[nom6];
-								ansNumber[1] = numbers[nom5];
-								ansNumber[2] = numbers[nom4];
-								ansNumber[3] = numbers[nom3];
-								ansNumber[4] = numbers[nom2];
-								ansNumber[5] = numbers[nom1];
+								ansNumber[0] = numbers[nom];
+								ansNumber[1] = numbers[nom + 2];
+								ansNumber[2] = numbers[nom + 3];
+								ansNumber[3] = numbers[nom + 1];
+								ansNumber[4] = numbers[nom + 4];
+								ansNumber[5] = numbers[nom + 5];
 								break;
 							}
-							nom6--;
+							e++;
 						}
-						nom5--;
+						d++;
 					}
-					nom4--;
+					c++;
 				}
-				nom3--;
+				b++;
 			}
-			nom2--;
+			a++;
 		}
-		nom1--;
+		nom--;
 	}
 
 	// sum-5 rule
