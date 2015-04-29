@@ -4,10 +4,9 @@ int main(void) {
 	//initialize variables
 	int numbers[6]; //Array of the numbers entered by user.
 	int result = 0; //The result of the rules
-	int answer = 0; //To see if the answer has been collected already
+	int answer = 0; //To see if the answer has been collected already and if the numbers inputs are valid
 	int rule = 0; //To figure out which rule is being used
-	int matchNumber = 0; //For getting the match number in the match formulas
-	int ansNumber[6]; //For getting the chosen numbers in the formulas
+	int ansNumber[6]; //For getting the chosen numbers in the formulas for output
 
 	//loop for entering the numbers
 	int scan = 0;
@@ -334,7 +333,7 @@ int main(void) {
 		result = 6 * numbers[match6] + 27;
 		answer = 1;
 		rule = 6;
-		matchNumber = numbers[match6];
+		ansNumber[0] = numbers[match6];
 	}
 
 
@@ -345,7 +344,7 @@ int main(void) {
 			result = 5 * numbers[match5] + 25;
 			answer = 1;
 			rule = 5;
-			matchNumber = numbers[match5];
+			ansNumber[0] = numbers[match5];
 			break;
 		}
 		match5++;
@@ -359,7 +358,7 @@ int main(void) {
 			result = 4 * numbers[match4] + 23;
 			answer = 1;
 			rule = 4;
-			matchNumber = numbers[match4];
+			ansNumber[0] = numbers[match4];
 			break; 
 		}
 		match4++;
@@ -373,7 +372,7 @@ int main(void) {
 			result = 3 * numbers[match3] + 21;
 			answer = 1;
 			rule = 3;
-			matchNumber = numbers[match3];
+			ansNumber[0] = numbers[match3];
 			break;
 		}
 		match3++;
@@ -387,7 +386,7 @@ int main(void) {
 			result = 2 * numbers[match2] + 19;
 			answer = 1;
 			rule = 2;
-			matchNumber = numbers[match2];
+			ansNumber[0] = numbers[match2];
 			break; 
 		}
 		match2++;
@@ -430,15 +429,15 @@ int main(void) {
 	} else if (rule == 7) {
 		printf("Rule sequence-2(%d, %d) - ", ansNumber[0], ansNumber[1]);
 	} else if (rule == 6) {
-		printf("Rule match-6(%d) - ", matchNumber);
+		printf("Rule match-6(%d) - ", ansNumber[0]);
 	} else if (rule == 5) {
-		printf("Rule match-5(%d) - ", matchNumber);
+		printf("Rule match-5(%d) - ", ansNumber[0]);
 	} else if (rule == 4) {
-		printf("Rule match-4(%d) - ", matchNumber);
+		printf("Rule match-4(%d) - ", ansNumber[0]);
 	} else if (rule == 3) {
-		printf("Rule match-3(%d) - ", matchNumber);
+		printf("Rule match-3(%d) - ", ansNumber[0]);
 	} else if (rule == 2) {
-		printf("Rule match-2(%d) - ", matchNumber);
+		printf("Rule match-2(%d) - ", ansNumber[0]);
 	} else {
 		printf("Rule total - ");
 	}
