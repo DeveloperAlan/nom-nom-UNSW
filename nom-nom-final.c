@@ -208,7 +208,7 @@ int main(void) {
 
 	//match-5 rule
 	int match5 = 0;
-	while(match5 < 6) {
+	while(match5 < 2) {
 		if(numbers[match5] == numbers[match5 + 4] && answer == 0) {
 			result = 5 * numbers[match5] + 25;
 			answer = 1;
@@ -282,7 +282,7 @@ int main(void) {
 
 	//match-4 rule
 	int match4 = 0;
-	while(match4 < 6) {
+	while(match4 < 3) {
 		if (numbers[match4] == numbers[match4 + 3] && answer == 0) {
 			result = 4 * numbers[match4] + 23;
 			answer = 1;
@@ -319,7 +319,7 @@ int main(void) {
 
 	//match-3 rule
 	int match3 = 0;
-	while(match3 < 6) {	
+	while(match3 < 4) {	
 		if(numbers[match3] == numbers[match3 + 2] && answer == 0) {
 			result = 3 * numbers[match3] + 21;
 			answer = 1;
@@ -377,7 +377,7 @@ int main(void) {
 
 	//match-2 rule
 	int match2 = 0;
-	while(match2 < 6) {
+	while(match2 < 5) {
 		if (numbers[match2] == numbers[match2 + 1] && answer == 0) {
 			result = 2 * numbers[match2] + 19;
 			answer = 1;
