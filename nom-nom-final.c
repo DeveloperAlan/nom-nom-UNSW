@@ -129,37 +129,49 @@ int main(void) {
 	// sum41 = Sum 4, Number 1, sum42 = Sum 4, Number 4, etc
 	int sum41 = 5;
 	while(sum41 >= 0) {
-		int sum42 = 5;
-		while(sum42 >= 0) {
-			int sum43 = 5;
-			while(sum43 >= 0) {
-				int sum44 = 5;
-				while(sum44 >= 0) {
-					int sum45 = 5;
-					while(sum45 >= 0) {
-						if (numbers[sum45] + numbers[sum44] + numbers[sum43] + numbers[sum42] == numbers[sum41] && 
-								numbers[sum45] < numbers[sum44] &&
-								numbers[sum44] <= numbers[sum43] &&
-								numbers[sum43] <= numbers[sum42] &&
-								numbers[sum42] < numbers[sum41] &&
-								answer == 0) {
-							result = numbers[sum45] + numbers[sum41] + 38;
+		int sum42 = 1;
+		while(sum42 <= 5) {
+			int sum43 = 1;
+			while(sum43 <= 5) {
+				int sum44 = 1;
+				while(sum44 <= 5) {
+					int sum45 = 1;
+					while(sum45 <= 5) {
+						if (numbers[sum41] + numbers[sum41 + 1] + numbers[sum41 + 2] + numbers[sum41 + 3] == numbers[sum41 + 4] && answer == 0) {
+							result = numbers[sum41] + numbers[sum41 + 4] + 38;
 							answer = 1;
 							rule = 14;
-							ansNumber[0] = numbers[sum45];
-							ansNumber[1] = numbers[sum44];
-							ansNumber[2] = numbers[sum43];
-							ansNumber[3] = numbers[sum42];
-							ansNumber[4] = numbers[sum41];
+							ansNumber[0] = numbers[sum41];
+							ansNumber[1] = numbers[sum41 + 1];
+							ansNumber[2] = numbers[sum41 + 2];
+							ansNumber[3] = numbers[sum41 + 3];
+							ansNumber[4] = numbers[sum41 + 4];
+							break;
+						} else if (numbers[sum41] + numbers[sum41 + sum42] + numbers[sum41 + sum43] + numbers[sum41 + sum44] == numbers[sum41 + sum45] && 
+								numbers[sum42] != numbers[sum43] &&
+								numbers[sum42] != numbers[sum44] &&
+								numbers[sum42] != numbers[sum45] &&
+								numbers[sum43] != numbers[sum44] &&
+								numbers[sum43] != numbers[sum45] &&
+								numbers[sum44] != numbers[sum45] &&
+								answer == 0) {
+							result = numbers[sum41] + numbers[sum41 + sum45] + 38;
+							answer = 1;
+							rule = 14;
+							ansNumber[0] = numbers[sum41];
+							ansNumber[1] = numbers[sum41 + sum42];
+							ansNumber[2] = numbers[sum41 + sum43];
+							ansNumber[3] = numbers[sum41 + sum44];
+							ansNumber[4] = numbers[sum41 + sum45];
 							break;
 						} 
-						sum45--;
+						sum45++;
 					}
-					sum44--;
+					sum44++;
 				}
-				sum43--;
+				sum43++;
 			} 
-			sum42--;
+			sum42++;
 		}
 		sum41--;
 	}
