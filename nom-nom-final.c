@@ -375,6 +375,17 @@ int main(void) {
 		seq21--;
 	}
 
+		//total rule
+	if(answer == 0) {
+		int total = 0;	
+		while (total < 6) {
+			result += numbers[total];
+			total++;
+		}
+		rule = 1;
+		answer = 1;
+	}
+
 	//match-2 rule
 	int match2 = 0;
 	while(match2 < 5) {
@@ -388,16 +399,7 @@ int main(void) {
 		match2++;
 	}
 
-	//total rule
-	if(answer == 0) {
-		int total = 0;	
-		while (total < 6) {
-			result += numbers[total];
-			total++;
-		}
-		rule = 1;
-		answer = 1;
-	}
+
 
 	//printing feedback to user
 	if (answer == 2) {
